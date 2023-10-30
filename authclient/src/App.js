@@ -5,10 +5,12 @@ import About from './component/About'
 import Profile from './component/Profile'
 import SignIn from "./component/SignIn"
 import SignUp from './component/SignUp'
+import Header from "./maincomponent/Header";
 
 const App = () => {
   return (
     <BrowserRouter>
+    <Header/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
