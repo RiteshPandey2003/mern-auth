@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [formdata, setformdata] = useState({});
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const  navigate =useNavigate()
 
   const handleChange = (e) => {
     setformdata({...formdata, [e.target.id]: e.target.value})
@@ -29,6 +30,7 @@ const SignUp = () => {
         setError(true);
         return;
       }
+      navigate('/signin')
     } catch (error) {
       setLoading(false);
       setError(true);
@@ -37,7 +39,7 @@ const SignUp = () => {
 
   return (
     <div className="p-3 max-w-lg mx-auto">
-      <h1 className="text-3xl tex-center font-semibold my-7">Sign Up</h1>
+      <h1 className="text-3xl text-center font-semibold my-7">Sign Up</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="text"
@@ -66,7 +68,7 @@ const SignUp = () => {
       </form>
       <div className="flex gap-2 mt-5">
         <p>Have an account?</p>
-        <Link to='/sign-in'>
+        <Link to='/signin'>
           <span className="text-blue-500"> sign in</span>
         </Link>
       </div>
