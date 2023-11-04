@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate} from "react-router-dom";
 import { signInStart, signInSuccess, SignInFailusre } from "../redux/user/userSlice";
 import {useDispatch, useSelector} from 'react-redux';
+import { EmailAuthentication } from "../maincomponent/EmailAuthentication.js";
 
 const SignIn = () => {
   const [formdata, setformdata] = useState({});
@@ -14,7 +15,7 @@ const SignIn = () => {
   }
   const handleSubmit= async(e)=>{
     e.preventDefault();
-    
+     
     try {
       dispatch(signInStart());
       const res = await fetch('/api/auth/signin', {
@@ -54,9 +55,10 @@ const SignIn = () => {
           className="bg-slate-200 p-3 rounded-lg"
           onChange={handleChange}
         />
-        <button disabled={loading} className="bg-slate-700 text-white uppercase over: opacity-95 disabled:opacity-80 p-3 rounded-lg">
+        <button disabled={loading} className="bg-slate-700 text-white uppercase hover: opacity-95 disabled:opacity-80 p-3 rounded-lg">
           {loading ? 'loading..' : 'sign in'}
         </button>
+        <EmailAuthentication/>
       </form>
       <div className="flex gap-2 mt-5">
         <p>Dont Have an account?</p>

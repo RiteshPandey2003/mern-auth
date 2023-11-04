@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link,useNavigate } from "react-router-dom";
+import { EmailAuthentication } from "../maincomponent/EmailAuthentication.js";
 
 const SignUp = () => {
   const [formdata, setformdata] = useState({});
@@ -62,9 +63,10 @@ const SignUp = () => {
           className="bg-slate-200 p-3 rounded-lg"
           onChange={handleChange}
         />
-        <button disabled={loading} className="bg-slate-700 text-white uppercase over: opacity-95 disabled:opacity-80 p-3 rounded-lg">
+        <button disabled={loading} className="bg-slate-700 text-white uppercase hover: opacity-95 disabled:opacity-80 p-3 rounded-lg">
           {loading ? 'loading..' : 'sign up'}
         </button>
+        <EmailAuthentication/>
       </form>
       <div className="flex gap-2 mt-5">
         <p>Have an account?</p>
